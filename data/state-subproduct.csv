@@ -1,0 +1,285 @@
+﻿ProductCategory,ProductSubCategory,State,Sales
+Furniture,Office Furnishings,Alabama,51.81
+Furniture,Chairs & Chairmats,Alabama,2485.59
+Office Supplies,Storage & Organization,Alabama,426.74
+Office Supplies,"Scissors, Rulers and Trimmers",Alabama,106.67
+Office Supplies,Rubber Bands,Alabama,2.66
+Office Supplies,Pens & Art Supplies,Alabama,168.15
+Office Supplies,Binders and Binder Accessories,Alabama,57.87
+Office Supplies,Appliances,Alabama,87.8
+Technology,Telephones and Communication,Alabama,1659.17
+Technology,Office Machines,Alabama,40434.64
+Furniture,Chairs & Chairmats,Arkansas,838.78
+Furniture,Bookcases,Arkansas,25029.79
+Office Supplies,Pens & Art Supplies,Arkansas,16.93
+Office Supplies,Paper,Arkansas,160.26
+Technology,Computer Peripherals,Arkansas,1022.56
+Furniture,Tables,California,56892.66
+Furniture,Office Furnishings,California,57627.74
+Furniture,Chairs & Chairmats,California,92861.34
+Furniture,Bookcases,California,123950.87
+Office Supplies,Storage & Organization,California,76686.41
+Office Supplies,"Scissors, Rulers and Trimmers",California,183.24
+Office Supplies,Rubber Bands,California,724.31
+Office Supplies,Pens & Art Supplies,California,9279.54
+Office Supplies,Paper,California,14808.52
+Office Supplies,Labels,California,951.84
+Office Supplies,Envelopes,California,3401.06
+Office Supplies,Binders and Binder Accessories,California,28159.22
+Office Supplies,Appliances,California,19955.9
+Technology,Telephones and Communication,California,47394.88
+Technology,Office Machines,California,84040.1
+Technology,Copiers and Fax,California,8444.74
+Technology,Computer Peripherals,California,23933.28
+Office Supplies,Storage & Organization,Connecticut,175.07
+Office Supplies,Paper,Connecticut,776.26
+Office Supplies,Envelopes,Delaware,181.46
+Office Supplies,Binders and Binder Accessories,Delaware,23.32
+Office Supplies,Appliances,Delaware,118.72
+Technology,Telephones and Communication,Delaware,1076.3
+Technology,Computer Peripherals,Delaware,100.96
+Furniture,Tables,District of Columbia,8387.93
+Furniture,Office Furnishings,District of Columbia,19323.8
+Furniture,Chairs & Chairmats,District of Columbia,41779.1
+Office Supplies,Storage & Organization,District of Columbia,2801.1
+Office Supplies,"Scissors, Rulers and Trimmers",District of Columbia,6.93
+Office Supplies,Rubber Bands,District of Columbia,178.95
+Office Supplies,Pens & Art Supplies,District of Columbia,3207.28
+Office Supplies,Paper,District of Columbia,1557.22
+Office Supplies,Labels,District of Columbia,382.19
+Office Supplies,Envelopes,District of Columbia,9123.41
+Office Supplies,Binders and Binder Accessories,District of Columbia,79524.55
+Office Supplies,Appliances,District of Columbia,2716.8
+Technology,Telephones and Communication,District of Columbia,23463.11
+Technology,Office Machines,District of Columbia,4226.58
+Technology,Copiers and Fax,District of Columbia,14300.26
+Technology,Computer Peripherals,District of Columbia,7889.41
+Furniture,Tables,Florida,60486.58
+Furniture,Office Furnishings,Florida,18621.6
+Furniture,Chairs & Chairmats,Florida,23283.81
+Furniture,Bookcases,Florida,13324.77
+Office Supplies,Storage & Organization,Florida,3840.7
+Office Supplies,"Scissors, Rulers and Trimmers",Florida,212.89
+Office Supplies,Pens & Art Supplies,Florida,199.08
+Office Supplies,Paper,Florida,6672.88
+Office Supplies,Labels,Florida,462.22
+Office Supplies,Envelopes,Florida,292.49
+Office Supplies,Binders and Binder Accessories,Florida,12722.86
+Office Supplies,Appliances,Florida,529.52
+Technology,Telephones and Communication,Florida,16546.4
+Technology,Office Machines,Florida,1612.93
+Technology,Copiers and Fax,Florida,4061.09
+Technology,Computer Peripherals,Florida,46410.92
+Furniture,Tables,Georgia,15931.08
+Furniture,Office Furnishings,Georgia,9617.54
+Furniture,Chairs & Chairmats,Georgia,15158.81
+Office Supplies,Rubber Bands,Georgia,26.47
+Office Supplies,Pens & Art Supplies,Georgia,29.88
+Office Supplies,Paper,Georgia,2036.79
+Office Supplies,Labels,Georgia,403.68
+Office Supplies,Envelopes,Georgia,706.5
+Office Supplies,Binders and Binder Accessories,Georgia,2802.36
+Office Supplies,Appliances,Georgia,2211.81
+Technology,Telephones and Communication,Georgia,3150.19
+Technology,Office Machines,Georgia,23065.98
+Technology,Computer Peripherals,Georgia,5816.15
+Furniture,Tables,Illinois,42343.14
+Furniture,Office Furnishings,Illinois,6252.78
+Furniture,Chairs & Chairmats,Illinois,27701.76
+Office Supplies,Storage & Organization,Illinois,18685.89
+Office Supplies,"Scissors, Rulers and Trimmers",Illinois,772.65
+Office Supplies,Rubber Bands,Illinois,77.96
+Office Supplies,Pens & Art Supplies,Illinois,1070.25
+Office Supplies,Paper,Illinois,5526.59
+Office Supplies,Labels,Illinois,851.41
+Office Supplies,Binders and Binder Accessories,Illinois,50236.59
+Office Supplies,Appliances,Illinois,4258.46
+Technology,Telephones and Communication,Illinois,30694.77
+Technology,Office Machines,Illinois,46128.87
+Technology,Copiers and Fax,Illinois,3704.35
+Technology,Computer Peripherals,Illinois,17724.03
+Furniture,Office Furnishings,Indiana,469.5
+Furniture,Bookcases,Indiana,414.29
+Office Supplies,Storage & Organization,Indiana,817.49
+Office Supplies,Appliances,Indiana,15.61
+Technology,Copiers and Fax,Indiana,11015.82
+Furniture,Office Furnishings,Kansas,269.61
+Furniture,Chairs & Chairmats,Kansas,1809.75
+Office Supplies,Pens & Art Supplies,Kansas,353.47
+Office Supplies,Paper,Kansas,166.62
+Office Supplies,Binders and Binder Accessories,Kansas,60.11
+Office Supplies,Appliances,Kansas,819.4
+Technology,Telephones and Communication,Kansas,265.18
+Technology,Copiers and Fax,Kansas,18712.97
+Technology,Computer Peripherals,Kansas,934.24
+Furniture,Chairs & Chairmats,Kentucky,7767.97
+Office Supplies,"Scissors, Rulers and Trimmers",Kentucky,168.06
+Office Supplies,Pens & Art Supplies,Kentucky,61.08
+Office Supplies,Envelopes,Kentucky,38.65
+Office Supplies,Binders and Binder Accessories,Kentucky,340.42
+Office Supplies,Appliances,Kentucky,559.75
+Technology,Office Machines,Kentucky,633.81
+Technology,Computer Peripherals,Kentucky,319.54
+Furniture,Tables,Maine,381.72
+Furniture,Office Furnishings,Maine,828.12
+Furniture,Bookcases,Maine,7099.12
+Office Supplies,Pens & Art Supplies,Maine,41.19
+Technology,Telephones and Communication,Maine,697.94
+Technology,Computer Peripherals,Maine,9.6
+Furniture,Tables,Massachusetts,8583.39
+Furniture,Office Furnishings,Massachusetts,1177.67
+Furniture,Chairs & Chairmats,Massachusetts,5258.94
+Furniture,Bookcases,Massachusetts,12698.93
+Office Supplies,Storage & Organization,Massachusetts,1504.48
+Office Supplies,"Scissors, Rulers and Trimmers",Massachusetts,250.29
+Office Supplies,Rubber Bands,Massachusetts,239.47
+Office Supplies,Pens & Art Supplies,Massachusetts,4999.1
+Office Supplies,Paper,Massachusetts,10411.52
+Office Supplies,Labels,Massachusetts,959.69
+Office Supplies,Envelopes,Massachusetts,1397.9
+Office Supplies,Binders and Binder Accessories,Massachusetts,3730.67
+Office Supplies,Appliances,Massachusetts,18092.57
+Technology,Telephones and Communication,Massachusetts,35366.59
+Technology,Office Machines,Massachusetts,6258.27
+Technology,Copiers and Fax,Massachusetts,9862.51
+Technology,Computer Peripherals,Massachusetts,11835.11
+Furniture,Tables,Michigan,40974.85
+Furniture,Office Furnishings,Michigan,20623.43
+Furniture,Bookcases,Michigan,9539.6
+Office Supplies,Storage & Organization,Michigan,17485.01
+Office Supplies,"Scissors, Rulers and Trimmers",Michigan,343
+Office Supplies,Rubber Bands,Michigan,51.72
+Office Supplies,Pens & Art Supplies,Michigan,1273.81
+Office Supplies,Paper,Michigan,1653.27
+Office Supplies,Envelopes,Michigan,2295.69
+Office Supplies,Binders and Binder Accessories,Michigan,1469.18
+Office Supplies,Appliances,Michigan,4368.77
+Technology,Telephones and Communication,Michigan,21441.23
+Technology,Office Machines,Michigan,1506.54
+Technology,Computer Peripherals,Michigan,6660.48
+Furniture,Chairs & Chairmats,Minnesota,159.51
+Office Supplies,"Scissors, Rulers and Trimmers",Minnesota,752.57
+Office Supplies,Envelopes,Minnesota,203.59
+Office Supplies,Binders and Binder Accessories,Minnesota,36.74
+Technology,Telephones and Communication,Minnesota,2677.03
+Technology,Office Machines,Minnesota,13327.5
+Furniture,Tables,New Jersey,6162.69
+Furniture,Bookcases,New Jersey,12195.58
+Office Supplies,Pens & Art Supplies,New Jersey,39.37
+Office Supplies,Paper,New Jersey,14.53
+Office Supplies,Appliances,New Jersey,31.74
+Technology,Telephones and Communication,New Jersey,1865.7
+Technology,Office Machines,New Jersey,582.57
+Furniture,Tables,New York,18627.3
+Furniture,Office Furnishings,New York,11990.06
+Furniture,Chairs & Chairmats,New York,120331.36
+Furniture,Bookcases,New York,14267.3
+Office Supplies,Storage & Organization,New York,23220.06
+Office Supplies,"Scissors, Rulers and Trimmers",New York,319.24
+Office Supplies,Rubber Bands,New York,813.21
+Office Supplies,Pens & Art Supplies,New York,6698.35
+Office Supplies,Paper,New York,18455.65
+Office Supplies,Labels,New York,2148.2
+Office Supplies,Envelopes,New York,9146.86
+Office Supplies,Binders and Binder Accessories,New York,40802.58
+Office Supplies,Appliances,New York,37425.29
+Technology,Telephones and Communication,New York,81700.3
+Technology,Office Machines,New York,95344.09
+Technology,Copiers and Fax,New York,76442.93
+Technology,Computer Peripherals,New York,21449.12
+Furniture,Tables,North Carolina,13151.13
+Furniture,Office Furnishings,North Carolina,8431.57
+Furniture,Chairs & Chairmats,North Carolina,759.6
+Office Supplies,Storage & Organization,North Carolina,131.52
+Office Supplies,Pens & Art Supplies,North Carolina,1342.62
+Office Supplies,Paper,North Carolina,3886.95
+Office Supplies,Labels,North Carolina,430.48
+Office Supplies,Envelopes,North Carolina,904.93
+Office Supplies,Binders and Binder Accessories,North Carolina,9040.7
+Office Supplies,Appliances,North Carolina,9923.58
+Technology,Telephones and Communication,North Carolina,11623.75
+Technology,Office Machines,North Carolina,10263.54
+Technology,Computer Peripherals,North Carolina,2873.11
+Furniture,Tables,Ohio,10938.92
+Furniture,Chairs & Chairmats,Ohio,8780.48
+Office Supplies,Storage & Organization,Ohio,526.85
+Office Supplies,Rubber Bands,Ohio,12.16
+Office Supplies,Paper,Ohio,242.1
+Office Supplies,Binders and Binder Accessories,Ohio,56.71
+Technology,Telephones and Communication,Ohio,2405.78
+Furniture,Tables,Oregon,928.84
+Furniture,Chairs & Chairmats,Oregon,640.97
+Office Supplies,Storage & Organization,Oregon,225.5
+Office Supplies,Pens & Art Supplies,Oregon,53.1
+Office Supplies,Paper,Oregon,184.68
+Office Supplies,Envelopes,Oregon,27.83
+Office Supplies,Binders and Binder Accessories,Oregon,82.95
+Technology,Telephones and Communication,Oregon,394.37
+Technology,Office Machines,Oregon,38751.66
+Furniture,Tables,Pennsylvania,6552.9
+Furniture,Office Furnishings,Pennsylvania,4780.56
+Furniture,Chairs & Chairmats,Pennsylvania,46480.68
+Furniture,Bookcases,Pennsylvania,1483.76
+Office Supplies,Storage & Organization,Pennsylvania,12491.76
+Office Supplies,"Scissors, Rulers and Trimmers",Pennsylvania,122.14
+Office Supplies,Pens & Art Supplies,Pennsylvania,850.14
+Office Supplies,Paper,Pennsylvania,2105.1
+Office Supplies,Labels,Pennsylvania,161.61
+Office Supplies,Envelopes,Pennsylvania,13669.19
+Office Supplies,Binders and Binder Accessories,Pennsylvania,8567.11
+Office Supplies,Appliances,Pennsylvania,26377.05
+Technology,Telephones and Communication,Pennsylvania,17225.53
+Technology,Copiers and Fax,Pennsylvania,4429.69
+Technology,Computer Peripherals,Pennsylvania,13144.09
+Office Supplies,Envelopes,South Dakota,1159.79
+Technology,Office Machines,South Dakota,6671.81
+Furniture,Office Furnishings,Texas,6283.42
+Furniture,Chairs & Chairmats,Texas,30360.68
+Furniture,Bookcases,Texas,1584.1
+Office Supplies,Storage & Organization,Texas,4727.66
+Office Supplies,"Scissors, Rulers and Trimmers",Texas,792.32
+Office Supplies,Rubber Bands,Texas,61.78
+Office Supplies,Pens & Art Supplies,Texas,3296.21
+Office Supplies,Paper,Texas,2726.01
+Office Supplies,Labels,Texas,1225.73
+Office Supplies,Envelopes,Texas,7363.72
+Office Supplies,Binders and Binder Accessories,Texas,28104.52
+Office Supplies,Appliances,Texas,26612.89
+Technology,Telephones and Communication,Texas,30410.48
+Technology,Office Machines,Texas,33471.08
+Technology,Copiers and Fax,Texas,19567.99
+Technology,Computer Peripherals,Texas,9160.83
+Furniture,Tables,Virginia,4631.59
+Furniture,Office Furnishings,Virginia,1609.73
+Furniture,Chairs & Chairmats,Virginia,6676.61
+Office Supplies,Storage & Organization,Virginia,430.09
+Office Supplies,Paper,Virginia,202.98
+Office Supplies,Envelopes,Virginia,16.71
+Office Supplies,Binders and Binder Accessories,Virginia,4249.37
+Office Supplies,Appliances,Virginia,1337.41
+Technology,Telephones and Communication,Virginia,5571.31
+Technology,Office Machines,Virginia,13164.78
+Technology,Computer Peripherals,Virginia,7.11
+Furniture,Tables,Washington,23453.77
+Furniture,Office Furnishings,Washington,4656.72
+Furniture,Chairs & Chairmats,Washington,68517.95
+Furniture,Bookcases,Washington,8058.11
+Office Supplies,Storage & Organization,Washington,4079.18
+Office Supplies,Rubber Bands,Washington,120.8
+Office Supplies,Pens & Art Supplies,Washington,3783.32
+Office Supplies,Paper,Washington,6612.67
+Office Supplies,Labels,Washington,611.81
+Office Supplies,Envelopes,Washington,23974.16
+Office Supplies,Binders and Binder Accessories,Washington,1350.68
+Office Supplies,Appliances,Washington,3803.8
+Technology,Telephones and Communication,Washington,59208.78
+Technology,Office Machines,Washington,27442.09
+Technology,Copiers and Fax,Washington,70038.66
+Technology,Computer Peripherals,Washington,4247.84
+Office Supplies,Storage & Organization,Wisconsin,360.31
+Office Supplies,Pens & Art Supplies,Wisconsin,30.1
+Office Supplies,Paper,Wisconsin,418.68
+Office Supplies,Labels,Wisconsin,42.79
+Office Supplies,Binders and Binder Accessories,Wisconsin,8849.99
+Technology,Telephones and Communication,Wisconsin,1657.17
+Technology,Office Machines,Wisconsin,4845.27

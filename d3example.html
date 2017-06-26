@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/d3example.css" type="text/css">
+<style>
+
+</style>
+<body style="text-align: center;overflow-x: hidden">
+<div class="box active">
+    <h2 style="margin: 5px;margin-top: 10px;">Section-1 美国超市利润可视化</h2>
+    <div class="message" style="text-align: left;margin: auto auto;width: 960px;">
+        <p id="state" style="font-size: 16px">state:</p>
+        <p id="profit" style="font-size: 16px;">profit:</p>
+    </div>
+    <svg id="svg1">
+
+    </svg>
+    <div class="section-1-msg">
+        <div class="colorRange">
+            <span id="left_color_size">10</span>
+            <span id="right_color_size">1000</span>
+        </div>
+    </div>
+</div>
+<div id="box2" class="box">
+    <h2 style="margin: 5px;margin-top: 10px;">Section-2 商品类别主成分分析</h2>
+    <svg id="svg2" width="960" height="500"></svg>
+</div>
+<div id="box3" class="box">
+    <div class='container'>
+        <div class='row'>
+            <h2 style="margin: 5px">Section-3 最受欢迎商品分析</h2>
+            <div class='radio'>
+                <label class='radio-inline'>
+                    <input type="radio" name="ProductCategory" value="Technology" onclick='change(this.value)'checked> Technology
+                </label>
+                <label class='radio-inline'>
+                    <input type="radio" name="ProductCategory" value="Furniture" onclick='change(this.value)' > Furniture
+                </label>
+                <label class='radio-inline'>
+                    <input type="radio" name="ProductCategory" value="Office Supplies" onclick='change(this.value)' > Office Supplies
+                </label>
+            </div>
+            <svg class='chart'>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<span id="prev"> < </span>
+<span id="next"> > </span>
+
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script> <!-- Inclusion of d3 v4 -->
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script>
+    var left_color=document.getElementById("left_color_size");
+    var right_color=document.getElementById("right_color_size");
+    var width=960;
+    var height = 500,
+    active = d3.select(null);
+    var pipeState;
+
+var projection = d3.geoAlbersUsa() // updated for d3 v4
+    .scale(1000)
+    .translate([width / 2, height / 2]);
+
+var zoom = d3.zoom()
+    // no longer in d3 v4 - zoom initialises with zoomIdentity, so it's already at origin
+    // .translate([0, 0])
+    // .scale(1)
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);
+
+var path = d3.geoPath() // updated for d3 v4
+    .projection(projection);
+
+var svg = d3.select("#svg1")
+    .attr("width", width)
+    .attr("height", height)
+    .on("click", stopped, true);
+
+svg.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height)
+    .on("click", reset);
+
+var g = svg.append("g");
+
+// Append Div for tooltip to SVG
+var div = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+var color = d3.scaleQuantize()
+    .range(["#a90c38", "#c6e3f4", "#a5cbe5", "#86b5d7", "#5586b2", "#416f9d", "#2e5a87"]);
+var state=document.getElementById("state");
+var profit=document.getElementById("profit");
+
+svg
+    .call(zoom); // delete this line to disable free zooming
+    // .call(zoom.event); // not in d3 v4
+
+d3.csv("data/states_profits.csv", function (data) {
+    //设置颜色比例尺的定义域
+    color.domain([
+        d3.min(data, function (d) {
+            return d.value;
+        }),
+        d3.max(data, function (d) {
+            return d.value;
+        })
+    ]);
+    left_color.innerText=d3.min(data, function (d) {
+        return d.value;
+    });
+
+    right_color.innerText= d3.max(data, function (d) {
+        return d.value;
+    });
+    //读入GeoJSON数据
+    d3.json("data/json/us-States-name.json", function (json) {
+        for (var i = 0; i < data.length; ++i) {
+            var dataState = data[i].state;
+            var dataValue = parseFloat(data[i].value);
+            for (var j = 0; j < json.objects.usStates.geometries.length; ++j) {
+                var jsonState = json.objects.usStates.geometries[j].properties.STATE_ABBR;
+                if (dataState == jsonState) {
+                    json.objects.usStates.geometries[j].properties.value = dataValue;
+                    break;
+                }
+            }
+        }
+
+        g.selectAll("path")
+            .data(topojson.feature(json, json.objects.usStates).features)
+            .enter().append("path")
+            .attr("d", path)
+            .attr("class", "feature")
+            .style("fill",function(d){
+                var value = d.properties.value;
+                if (value) {
+                    return color(value / 5);
+                } else {
+                    return "#ccc";
+                }
+            })
+            .on("mouseover", stateMouseover)
+            .on("mouseout", stateMouseout)
+            .on("click", clicked);
+    });
+
+    d3.json("data/json/us.json", function(error, us) {
+        if (error) throw error;
+        console.log(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+        g.append("path")
+            .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+            .attr("class", "mesh")
+            .attr("d", path);
+    });
+    d3.csv("data/us-cities-profit.csv", function(data) {
+        g.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) {
+                console.log(d);
+                return projection([d.lon, d.lat])[0];
+            })
+            .attr("cy", function(d) {
+                return projection([d.lon, d.lat])[1];
+            })
+            .attr("r", function(d) {
+                return 3;
+            })
+            .style("fill", "rgb(217,91,67)")
+            .style("opacity", 0.85)
+            .on("mouseover", function(d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                div.text(d.name+":"+d.profit)
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+    });
+});
+    var next=document.getElementById("next");
+    var prev=document.getElementById("prev");
+    var flag=0;
+    next.onclick=function () {
+        var active=document.getElementsByClassName("box active")[0];
+        active.setAttribute("class","box left");
+        flag++;
+        flag=flag%3;
+        var target=document.getElementsByClassName("box")[flag];
+        target.setAttribute("class","box active")
+
+    };
+    prev.onclick=function () {
+        var active=document.getElementsByClassName("box active")[0];
+        active.setAttribute("class","box right");
+        flag--;
+        if(flag>=0)
+            flag=flag%3;
+        else
+            flag=2;
+        var target=document.getElementsByClassName("box")[flag];
+        target.setAttribute("class","box active")
+
+    };
+
+
+    //鼠标滑入回调函数
+    function stateMouseover(d) {
+       state.innerText="state: "+d.properties.STATE_ABBR;
+       if(d.properties.value==undefined)
+           profit.innerText="profit: 很抱歉，找不到数据";
+       else
+          profit.innerText="profit: "+d.properties.value;
+    }
+
+    //鼠标滑出回调函数
+    function stateMouseout() {
+
+    }
+    var pieObj={};
+function clicked(d) {
+  if (active.node() === this) return reset();
+  console.log("执行了放大");
+  pipeState=d.properties.STATE_ABBR;
+  active.classed("active", false);
+  active = d3.select(this).classed("active", true);
+  var bounds = path.bounds(d),
+      dx = bounds[1][0] - bounds[0][0],
+      dy = bounds[1][1] - bounds[0][1],
+      x = (bounds[0][0] + bounds[1][0]) / 2,
+      y = (bounds[0][1] + bounds[1][1]) / 2,
+      scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
+      translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+  svg.transition()
+      .duration(750)
+      .call( zoom.transform, d3.zoomIdentity.translate(translate[0],translate[1]).scale(scale) ); // updated for d3 v4
+    console.log("更新了州为："+pipeState);
+   /* var targetSvg=document.getElementById("svg2");
+    targetSvg.innerHTML="";*/
+
+   updatePie(pieObj[pipeState]);
+//    下面是更新条形图
+    update(subProductTotal[pipeState]["Technology"]);
+}
+
+function reset() {
+  active.classed("active", false);
+  active = d3.select(null);
+  svg.transition()
+      .duration(750)
+      .call( zoom.transform, d3.zoomIdentity );
+  var target=document.getElementById("svg2");
+  target.innerHTML="";
+}
+
+function zoomed() {
+  g.style("stroke-width", 1.5 / d3.event.transform.k + "px");
+  g.attr("transform", d3.event.transform);
+}
+function stopped() {
+  if (d3.event.defaultPrevented) d3.event.stopPropagation();
+}
+
+</script>
+<script>
+    d3.csv("data/city_product.csv",function (error,data) {
+        console.log(data);
+        for(var i=0;i<data.length;i++){
+            var item=data[i];
+            if(pieObj[item.state]==undefined){
+                var obj={};
+                obj.name=item.product;
+                obj.profit=item.profit;
+                pieObj[item.state]=[];
+                pieObj[item.state][0]=obj;
+            }else{
+                var obj={};
+                obj.name=item.product;
+                obj.profit=item.profit;
+                var tempLen=pieObj[item.state].length;
+                pieObj[item.state][tempLen]=obj;
+            }
+        }
+        console.log(pieObj);
+        console.log("读取完毕");
+
+    });
+    /*下面是画条形图的部分*/
+    var subProductTotal={};
+    d3.csv("data/test.csv",function(error,data){
+        for(var i = 0; i < data.length; i++){
+          var item=data[i];
+          var currentState=item.State;
+          if(subProductTotal[currentState]==undefined)
+              subProductTotal[currentState]={};
+          var currentProduct=item.ProductCategory;
+          if(subProductTotal[currentState][currentProduct]==undefined){
+              subProductTotal[currentState][currentProduct]=[];
+          }
+          var obj={};
+          obj.name=item.ProductSubCategory;
+          obj.Sales=item.Sales;
+          obj.ProductCategory=currentProduct;
+          subProductTotal[currentState][currentProduct].push(obj);
+        }
+        console.log(subProductTotal);
+        //update(subProductTotal["AL"]["Office Supplies"]);
+        update([]);
+    });
+    //functions for toggling between data
+    function change(value){
+        if(subProductTotal[pipeState][value]==undefined)
+            update([])
+        else
+            update(subProductTotal[pipeState][value]);
+    }
+    function updatePie(data) {
+        var svg2 = d3.select("#svg2"),
+            width2 = +svg2.attr("width"),
+            height2 = +svg2.attr("height"),
+            radius2 = Math.min(width2, height2) / 2,
+            g2 = svg2.append("g").attr("transform", "translate(" + width2 / 2 + "," + height2 / 2 + ")");
+        var color2 = d3.scaleOrdinal(d3.schemeCategory20);
+        var pie2 = d3.pie()
+            .sort(null)
+            .value(function(d) { return d.profit; });
+        var path2 = d3.arc()
+            .outerRadius(radius2 - 100)
+            .innerRadius(radius2 - 20);
+        var label2 = d3.arc()
+            .outerRadius(radius2 - 40)
+            .innerRadius(radius2 - 40);
+        var arc = g2.selectAll(".arc")
+            .remove()
+            .exit()
+            .data(pie2(data))
+            .enter().append("g")
+            .attr("class", "arc");
+        arc.append("path")
+            .attr("d", path2)
+            .attr("fill", function(d) { return color2(d.data.profit); });
+        arc.append("text")
+            .attr("transform", function(d) { return "translate(" + label2.centroid(d) + ")"; })
+            .attr("dy", "0.35em")
+            .text(function(d) { return d.data.name; });
+    }
+    function update(data){
+        xChart.domain(data.map(function(d){ return d.name; }) );
+        yChart.domain( [0, d3.max(data, function(d){ return +d.Sales; })] );
+        var barWidth = width / data.length;
+        var bars = chart.selectAll(".bar")
+            .remove()
+            .exit()//重要的更新部分
+            .data(data)
+        chart.select('.y')
+            .call(yAxis)
+        bars.enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("y", function(d){ return yChart( d.Sales); })
+            .attr("x", function(d, i){ return i * barWidth + 1 })
+            .transition()
+            .duration(1000)
+            .attr("height", function(d){ return height - yChart(d.Sales); })
+            .attr("width", barWidth - 1)
+            .attr("fill", function(d){
+                if(d.ProductCategory === "Furniture"){
+                    return "rgb(251,180,174)";
+                }else if(d.ProductCategory=="Technology"){
+                    return "rgb(232, 218, 87)";
+                }
+                else{
+                    return "rgb(179,205,227)";
+                }
+            });
+        chart.select('.xAxis')
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", function(d){
+                return "rotate(-35)";
+            });
+
+    }
+    var margin = {top: 20, right: 20, bottom: 95, left: 50};
+    var width = 650;
+    var height = 400;
+    var chart = d3.select(".chart")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    var xChart = d3.scaleBand()
+        .range([0, width]);
+    var yChart = d3.scaleLinear()
+        .range([height, 0]);
+    var xAxis = d3.axisBottom(xChart);
+    var yAxis = d3.axisLeft(yChart);
+    chart.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+    chart.append("g")
+        .attr("class", "xAxis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", function(d){
+            return "rotate(-35)";
+        });
+
+</script>
